@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home admin</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/admin.css"/>
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">-->
+</head>
+<body>
+<div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                        <span class="icon">
+                            <ion-icon name="menu-outline"></ion-icon>
+                        </span>
+                    <span class="title">HỆ THỐNG QUẢN LÝ</span>
+                </a>
+            </li>
+            <li>
+                <a href="/available_categories">
+                        <span class="icon">
+                            <ion-icon name="folder-outline"></ion-icon>
+                        </span>
+                    <span class="title">Quản lý danh mục</span>
+                </a>
+            </li>
+            <li>
+                <a href="/available_author">
+                        <span class="icon">
+                            <ion-icon name="pencil-outline"></ion-icon>
+                        </span>
+                    <span class="title">Quản lý tác giả</span>
+                </a>
+            </li>
+            <li>
+                <a href="/available_publisher">
+                        <span class="icon">
+                            <ion-icon name="storefront-outline"></ion-icon>
+                        </span>
+                    <span class="title">Quản lý nhà xuất bản</span>
+                </a>
+            </li>
+            <li>
+                <a href="/available_books">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                    <span class="title">Quản lý sách</span>
+                </a>
+            </li>
+            <li>
+                <a href="/available_users">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                    <span class="title">Quản lý người dùng</span>
+                </a>
+            </li>
+            <li>
+                <a href="/available_orders">
+                        <span class="icon">
+                            <ion-icon name="bag-handle-outline"></ion-icon>
+                        </span>
+                    <span class="title">Quản lý đơn hàng</span>
+                </a>
+            </li>
+            <!--<li>
+                <a href="/available_statistical">
+                        <span class="icon">
+                            <ion-icon name="server-outline"></ion-icon>
+                        </span>
+                    <span class="title">Thống kê thông tin</span>
+                </a>
+            </li>-->
+            <li>
+                <!--<a href="/available_dashboard">-->
+                <a href="dashboard.html">
+                        <span class="icon">
+                            <ion-icon name="bar-chart-outline"></ion-icon>
+                        </span>
+                    <span class="title">Thống kê doanh thu</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="main">
+    <div class="topbar">
+        <div class="toggle">
+            <span class="title">SÁCH VIỆT</span>
+        </div>
+        <div class="user">
+                <span class="icon">
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                        </span>
+            <span class="title">ADMIN</span>
+        </div>
+    </div>
+
+    <div class="categories-content">
+        <span>Thêm sách</span>
+    </div>
+    <div class="detail">
+        <form th:action="@{/save_books}" th:object="${book}" method="post" style="max-width: 400px; margin: auto; margin-left: -10px;">
+            <div style="margin-bottom: 15px;">
+                <label for="image">Chọn hình ảnh</label>
+                <br>
+                <input type="file" id="image" name="image"><br><br>
+
+                <label id="tenSach" for="tenSach" style="display: block; margin-bottom: 5px;">Tên sách</label>
+                <input type="text" style="width: 100%; padding: 8px; box-sizing: border-box;" name="tenSach" placeholder="Nhập tên sách">
+
+                <label id="giaSach" for="giaSach" style="display: block; margin-bottom: 5px;">Giá sách</label>
+                <input type="text" style="width: 100%; padding: 8px; box-sizing: border-box;" name="giaSach" placeholder="Nhập giá sách">
+
+                <label id="soLuong" for="soLuong" style="display: block; margin-bottom: 5px;">Số lượng</label>
+                <input type="text" style="width: 100%; padding: 8px; box-sizing: border-box;" name="soLuong" placeholder="Nhập số lượng">
+
+                <label id="moTa" for="moTa" style="display: block; margin-bottom: 5px;">Mô tả</label>
+                <textarea style="width: 100%; padding: 8px; box-sizing: border-box;" name="moTa" placeholder="Nhập mô tả"></textarea>
+
+                <label id="soTrang" for="soTrang" style="display: block; margin-bottom: 5px;">Số trang</label>
+                <input type="text" style="width: 100%; padding: 8px; box-sizing: border-box;" name="soTrang" placeholder="Nhập số trang">
+
+                <label id="loaiBia" for="loaiBia" style="display: block; margin-bottom: 5px;">Loại bìa</label>
+                <input type="text" style="width: 100%; padding: 8px; box-sizing: border-box;" name="loaiBia" placeholder="Nhập loại bìa">
+
+                <label id="kichThuoc" for="kichThuoc" style="display: block; margin-bottom: 5px;">Kích thước</label>
+                <input type="text" style="width: 100%; padding: 8px; box-sizing: border-box;" name="kichThuoc" placeholder="Nhập kích thước">
+
+                <label id="ngayXB" for="ngayXB" style="display: block; margin-bottom: 5px;">Ngày xuất bản</label>
+                <input type="text" style="width: 100%; padding: 8px; box-sizing: border-box;" name="ngayXB" placeholder="Nhập ngày xuất bản">
+
+                <label for="categories" style="display: block; margin-bottom: 5px;">Mã danh mục</label>
+                <select class="form-control" id="categories" th:field="*{categories}">
+                    <option value="">Chọn danh mục</option>
+                    <option th:each="categories : ${categories}" th:value="${categories.idDM}" th:text="${categories.idDM} + ' - ' + ${categories.tenDM}"></option>
+                </select>
+
+                <label for="author" style="display: block; margin-bottom: 5px;">Mã tác giả</label>
+                <select class="form-control" id="author" th:field="*{author}">
+                    <option value="">Chọn tác giả</option>
+                    <option th:each="author : ${author}" th:value="${author.idTG}" th:text="${author.idTG} + ' - ' + ${author.tenTG}"></option>
+                </select>
+
+                <label for="publisher" style="display: block; margin-bottom: 5px;">Mã nhà xuất bản</label>
+                <select class="form-control" id="publisher" th:field="*{publisher}">
+                    <option value="">Chọn nhà xuất bản</option>
+                    <option th:each="publisher : ${publisher}" th:value="${publisher.idNXB}" th:text="${publisher.idNXB} + ' - ' + ${publisher.tenNXB}"></option>
+                </select>
+            </div>
+            <center>
+                <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Thêm</button>
+            </center>
+        </form>
+    </div>
+</div>
+<!--icon-->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<!--content-->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+</html>

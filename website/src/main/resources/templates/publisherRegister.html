@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home admin</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/admin.css"/>
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">-->
+</head>
+<body>
+<div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                        <span class="icon">
+                            <ion-icon name="menu-outline"></ion-icon>
+                        </span>
+                    <span class="title">HỆ THỐNG QUẢN LÝ</span>
+                </a>
+            </li>
+            <li>
+                <a href="/available_categories">
+                        <span class="icon">
+                            <ion-icon name="folder-outline"></ion-icon>
+                        </span>
+                    <span class="title">Quản lý danh mục</span>
+                </a>
+            </li>
+            <li>
+                <a href="/available_author">
+                        <span class="icon">
+                            <ion-icon name="pencil-outline"></ion-icon>
+                        </span>
+                    <span class="title">Quản lý tác giả</span>
+                </a>
+            </li>
+            <li>
+                <a href="/available_publisher">
+                        <span class="icon">
+                            <ion-icon name="storefront-outline"></ion-icon>
+                        </span>
+                    <span class="title">Quản lý nhà xuất bản</span>
+                </a>
+            </li>
+            <li>
+                <a href="/available_books">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                    <span class="title">Quản lý sách</span>
+                </a>
+            </li>
+            <li>
+                <a href="/available_users">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                    <span class="title">Quản lý người dùng</span>
+                </a>
+            </li>
+            <li>
+                <a href="/available_orders">
+                        <span class="icon">
+                            <ion-icon name="bag-handle-outline"></ion-icon>
+                        </span>
+                    <span class="title">Quản lý đơn hàng</span>
+                </a>
+            </li>
+            <li>
+                <!--<a href="/available_dashboard">-->
+                <a href="dashboard.html">
+                        <span class="icon">
+                            <ion-icon name="bar-chart-outline"></ion-icon>
+                        </span>
+                    <span class="title">Thống kê doanh thu</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="main">
+    <div class="topbar">
+        <div class="toggle">
+            <span class="title">SÁCH VIỆT</span>
+        </div>
+        <div class="user">
+                <span class="icon">
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                        </span>
+            <span class="title">ADMIN</span>
+        </div>
+    </div>
+
+    <div class="categories-content">
+        <!--    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-white" href="#">Quản lý danh mục</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="available_categories">Danh sách danh mục</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="categories_register">Thêm danh mục</a>
+                            </li>
+                        </ul>
+                        <div>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <form class="float-right" action="/categories_search" method="GET">
+                                    <input type="text"  id= "tenDM" name="tenDM" placeholder="Nhập tên danh mục" required/>
+                                    <input type="submit" value="Tìm kiếm"/>
+                                </form>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div>
+                <div>
+                    <table border="1" class="table table-striped table-hover">
+                        <thead class="table-info">
+                        <tr class="value">
+                            <th scope="col">Mã danh mục</th>
+                            <th scope="col">Tên danh mục</th>
+                            <th scope="col">Chức năng</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="value" th:each="c :${categories}">
+                            <td th:text="${c.idDM}"></td>
+                            <td th:text="${c.tenDM}"></td>
+                            <td>
+                                <a style="color:blue" th:href="@{/editCategories/{idDM}(idDM=${c.idDM})}">
+                                    <i class="fa-solid fa-pen-to-square ms-4"></i>
+                                </a>
+                                <a style="color:red" th:href="@{/deleteCategories/{idDM}(idDM=${c.idDM})}">
+                                    <i class="fa-solid fa-trash ms-4" onclick="return confirm('Bạn có chắc nuốn xóa không?')"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>-->
+        <spa>Thêm nhà xuất bản mới</spa>
+    </div>
+    <div class="detail">
+        <form th:action="@{/save_publisher}" method="post" style="max-width: 400px; margin: auto; margin-left: -10px;">
+            <div style="margin-bottom: 15px;">
+                <label id="tenNXB" for="tenNXB" style="display: block; margin-bottom: 5px;">Tên nhà xuất bản</label>
+                <input type="text" style="width: 100%; padding: 8px; box-sizing: border-box;" name="tenNXB" placeholder="Nhập tên nhà xuất bản">
+            </div>
+            <center>
+                <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Thêm</button>
+            </center>
+        </form>
+    </div>
+</div>
+<!--icon-->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<!--content-->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+</html>
